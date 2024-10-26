@@ -14,7 +14,7 @@ def create_env():
 
 def pip_packages(env_path: str):
     pip_path = env_path / 'Scripts' / 'pip' if os.name == 'nt' else env_path / 'bin' / 'pip'
-    command = f"{pip_path} install catboost scikit-learn optuna pandas numpy"
+    command = [pip_path, 'install', 'catboost', 'scikit-learn', 'optuna', 'pandas', 'numpy']
     logging.basicConfig(level=logging.INFO, filename='install.txt', filemode='w',
                         format='%(asctime)s - %(levelname)s - %(message)s')
     try:
