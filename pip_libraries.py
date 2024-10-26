@@ -18,7 +18,7 @@ def pip_packages(env_path: str):
     logging.basicConfig(level=logging.INFO, filename='install.txt', filemode='w',
                         format='%(asctime)s - %(levelname)s - %(message)s')
     try:
-        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        result = subprocess.run(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
         logging.info("stdout: %s", result.stdout)
         if result.returncode != 0:
             logging.error("stderr: %s", result.stderr)
